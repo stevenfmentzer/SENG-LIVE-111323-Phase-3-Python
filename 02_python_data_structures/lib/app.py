@@ -57,12 +57,16 @@ pet_names.clear()
 #Tuple 
 # 📚 Review With Students:
     # Mutable, Immutable, Changeable, Unchangeable
+    # List : Mutable
+    # Tuple : Immutable
+
+# Tuple is an immutable data type that can also store many types of data.
 
 #17. ✅ Create a Tuple of pet 10 ages 
-pet_ages = (12,18,23,45,46,52,67,75)
+pet_ages = ( 1, 2, 3, 4, 5, 6, 7, 7, 7, 7 )
 
 #18. ✅ Print the first pet age
-print(pet_ages[0])
+pet_ages[0]
 
 # Testing Changeability 
 #19. ✅ Attempt to remove an element with ".pop" (should error)
@@ -93,7 +97,7 @@ pet_info_rose = {'name':'rose','age':11,'breed':'domestic long '}
 pet_info_rose = dict(name='rose', age=11, breed='domestic long')
 
 #26. ✅  Use dict to create a dictionary of pet information with the keys "name", "age" and "breed"
-pet_info_spot = dict(name='Spot', age=25, breed='boxer')
+pet_info_2 = dict(name="Hazel", age=2, breed="labdoodle")
 
 
 # Reading
@@ -166,6 +170,13 @@ def function_1(input_list):
         # The loop will continue as long as the counter is less than the length of the list
         # Every loop should increase the count by 1
     # Return the counter 
+#[{}, {}, {}] #2 
+def count_increment(lst):
+    counter = 0
+    while(counter < len(lst)):
+            counter += 1
+    return counter
+# count_increment(pet_info)
 
 def count_list_items(input_list):
     counter = 0 
@@ -175,7 +186,7 @@ def count_list_items(input_list):
 
 #38. ✅ Create a function that updates the age of a given pet
         # The function should take a list of "dict"s, "name" and "age" as parameters 
-        # Create am index variable and set it to 0
+        # Create an index variable and set it to 0
         # Create a while loop 
             # The loop will continue so long as the list does not contain a name matching the "name" param and the index is less then the length of the list
             # Every list will increase the index by 1
@@ -190,6 +201,28 @@ def update_pet_age(pet_list, name, new_age):
             pet_list[index]['age'] = new_age
         else: return 'pet not found'
 
+# update_age(pet_info, 'rose', 120)
+
+
+# def update_age(lst, name, age):
+#     idx = 0
+#     print(len(lst), idx)
+#     while idx < len(lst) and lst[idx].get('name') != name:
+#         print("every item----", lst[idx])
+#         idx += 1
+#     if idx < len(lst) and lst[idx].get('name') == name:
+#         print(lst[idx])
+#         lst[idx]['age'] = age
+#         return lst[idx]
+#     else:
+#         return 'pet not found'
+
+
+# pet_info = [{'name': 'rose', 'age': 100}, {'name': 'lily', 'age': 80}]
+# result = update_age(pet_info, 'rose', 120)
+# print(result)
+
+                 
 # map like 
 #39. ✅ Use list comprehension to return a list containing every pet name from "pet_info" changed to uppercase
 uppercase_names = [pet['name'].upper() for pet in pet_info]
@@ -202,6 +235,8 @@ spot_pet = [pet for pet in pet_info if pet['name'].lower() == 'spot']
 
 # filter like
 #41. ✅ Use list comprehension to find all of the pets under 3 years old
+pet_under_3 = [ each_pet for each_pet in pet_info 
+    if each_pet.get('age') < 3]
 
 pet_3 = [pet for pet in pet_info if pet['age'] < 3]
 
